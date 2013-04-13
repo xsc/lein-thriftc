@@ -4,7 +4,10 @@
 
 ## Usage
 
+__lein-thriftc__ is available via [Clojars](https://clojars.org/lein-thriftc).
+
 __project.clj__
+
 
 ```clojure
   :plugins [[lein-thriftc "0.1.0"] ...]
