@@ -6,7 +6,7 @@
 
 __lein-thriftc__ is available via [Clojars](https://clojars.org/lein-thriftc).
 
-__project.clj__
+### project.clj
 
 
 ```clojure
@@ -30,7 +30,7 @@ key:
 
 (The given values are the default ones.)
 
-__Command Line__
+### Command Line
 
 ```
 lein thriftc [:verbose]
