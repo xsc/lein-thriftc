@@ -1,10 +1,40 @@
 # lein-thriftc
 
-Apache Thrift Plugin for Leiningen.
+[Apache Thrift](http://thrift.apache.org/) Plugin for Leiningen.
 
 ## Usage
 
-Put `[lein-thriftc "0.1.0-SNAPSHOT"]` into the `:plugins` vector of your project.clj.
+__project.clj__
+
+```clojure
+  :dependencies [[lein-thriftc "0.1.0"] ...]
+  :prep-tasks ["thriftc" ...]
+```
+
+This will run the plugin automatically. (If you don't want that, leave out the `:prep-tasks` line.)
+You can customize its behaviour by adding a map of options to your `project.clj` using the `:thrift`
+key:
+
+```clojure
+...
+  :thriftc { :path          "thrift"        ;; path to Thrift executable
+             :source-paths  ["src/thrift"]  ;; paths to Thrift files
+             :java-gen-opts "bean,hashcode" ;; options for "--gen java:<options>"
+             :javac-opts    []              ;; options for javac
+             :force-compile false }         ;; do not check for changes
+...
+```
+
+(The given values are the default ones.)
+
+__Command Line__
+
+```
+lein thriftc [:verbose]
+```
+
+This runs the plugin manually based on the information given in `project.clj`. `:verbose`
+results in a few log messages.
 
 ## License
 

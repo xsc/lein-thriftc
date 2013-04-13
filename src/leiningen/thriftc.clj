@@ -98,12 +98,12 @@
 
 (defn- thrift-project
   [project]
-  (let [data (:thrift project {})
+  (let [data (:thriftc project {})
         target-dir (:target-path project "target")]
     (-> {}
       (assoc :path (:path data "thrift"))
       (assoc :source-paths (:source-paths data ["src/thrift"]))
-      (assoc :java-opts (:java-opts data "bean,hashcode"))
+      (assoc :java-gen-opts (:java-opts data "bean,hashcode"))
       (assoc :javac-opts (:javac-opts data []))
       (assoc :target-path (str target-dir "/thrift-java"))
       (assoc :modified-file (str target-dir "/.lein-thriftc-modified"))
@@ -116,10 +116,11 @@
    
    project.clj:
 
-    :thrift { :path \"thrift\"
-              :source-paths \"src/thrift\"
-              :java-opts \"bean,hashcode\"
-              :force-compile false }
+    :thriftc { :path \"thrift\"
+               :source-paths [\"src/thrift\"]
+               :java-gen-opts \"bean,hashcode\"
+               :javac-opts [] 
+               :force-compile false }
   "
   [project & args]
   (when-not (:root project)
@@ -134,7 +135,7 @@
           src-dirs (:source-paths thrift-project)
           java-dir (:target-path thrift-project)
           mod-file (:modified-file thrift-project)
-          java-opts (:java-opts thrift-project)
+          java-opts (:java-gen-opts thrift-project)
           javac-opts (:javac-opts thrift-project)
           src-files (thrift-sources src-dirs)
           compile! (partial compile-thrift thrift java-dir java-opts)]
