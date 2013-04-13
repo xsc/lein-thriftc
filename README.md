@@ -7,7 +7,7 @@
 __project.clj__
 
 ```clojure
-  :dependencies [[lein-thriftc "0.1.0"] ...]
+  :plugins [[lein-thriftc "0.1.0"] ...]
   :prep-tasks ["thriftc" ...]
 ```
 
