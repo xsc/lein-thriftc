@@ -2,7 +2,7 @@
 
 [Apache Thrift](http://thrift.apache.org/) Plugin for Leiningen.
 
-### Requirements
+## Requirements
 
 - Apache Thrift [tested with version 0.9.0]
 - [Leiningen](https://github.com/technomancy/leiningen) [tested with version 2.0.0]
