@@ -15,7 +15,7 @@ __lein-thriftc__ is available via [Clojars](https://clojars.org/lein-thriftc).
 ```
 
 This will run the plugin automatically. (If you don't want that, leave out the `:prep-tasks` line.)
-You can customize its behaviour by adding a map of options to your `project.clj` using the `:thrift`
+You can customize its behaviour by adding a map of options to your `project.clj` using the `:thriftc`
 key:
 
 ```clojure
