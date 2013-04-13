@@ -1,6 +1,6 @@
 (defproject lein-thriftc "0.1.0"
   :min-lein-version "2.0.0"
-  :description "Compile Thrift Files in Leiningen."
+  :description "Leiningen Plugin for Apache Thrift Files."
   :url "https://github.com/xsc/lein-thriftc"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
