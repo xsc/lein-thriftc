@@ -1,4 +1,4 @@
-(defproject lein-thriftc "0.1.0-SNAPSHOT"
+(defproject lein-thriftc "0.1.0"
   :min-lein-version "2.0.0"
   :description "Compile Thrift Files in Leiningen."
   :url "https://github.com/xsc/lein-thriftc"
