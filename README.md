@@ -2,6 +2,8 @@
 
 [Apache Thrift](http://thrift.apache.org/) Plugin for Leiningen.
 
+[![endorse](https://api.coderwall.com/xsc/endorsecount.png)](https://coderwall.com/xsc)
+
 ## Requirements
 
 - Apache Thrift [tested with version 0.9.0]
