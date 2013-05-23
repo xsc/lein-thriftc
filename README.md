@@ -31,7 +31,7 @@ key:
              :source-paths  ["src/thrift"]  ;; paths to Thrift files
              :java-gen-opts "bean,hashcode" ;; options for "--gen java:<options>"
              :javac-opts    []              ;; options for javac
-             :force-compile false }         ;; do not check for changes
+             :force-compile false }         ;; true = do not check for changes
 ...
 ```
 
