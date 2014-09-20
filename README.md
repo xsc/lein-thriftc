@@ -6,48 +6,46 @@
 
 ## Requirements
 
-- Apache Thrift [tested with version 0.9.0]
-- [Leiningen](https://github.com/technomancy/leiningen) [tested with version 2.0.0]
+- Apache Thrift [tested with versions >= 0.9.0]
+- [Leiningen](https://github.com/technomancy/leiningen) [tested with versions >= 2.0.0]
 
 ## Usage
 
-__lein-thriftc__ is available via [Clojars](https://clojars.org/lein-thriftc).
+__Leiningen__ ([via Clojars](https://clojars.org/lein-thriftc))
 
-### project.clj
+[![Clojars Project](http://clojars.org/lein-thriftc/latest-version.svg)](http://clojars.org/lein-thriftc)
 
-
-```clojure
-  :plugins [[lein-thriftc "0.1.0"] ...]
-  :prep-tasks ["thriftc" ...]
-```
-
-This will run the plugin automatically. (If you don't want that, leave out the `:prep-tasks` line.)
-You can customize its behaviour by adding a map of options to your `project.clj` using the `:thriftc`
-key:
+Add the artifact to the `:plugins` vector of your `project.clj`. You can make it run automatically on
+tasks like `jar` or `repl` using the built-in hook:
 
 ```clojure
 ...
-  :thriftc { :path          "thrift"        ;; path to Thrift executable
-             :source-paths  ["src/thrift"]  ;; paths to Thrift files
-             :java-gen-opts "bean,hashcode" ;; options for "--gen java:<options>"
-             :javac-opts    []              ;; options for javac
-             :force-compile false }         ;; true = do not check for changes
+  :hooks [leiningen.thriftc]
+...
+```
+
+You can customize lein-thrift's behaviour by adding a map of options to your `project.clj` using the
+`:thriftc` key:
+
+```clojure
+...
+  :thriftc {:path          "thrift"        ;; path to Thrift executable
+            :source-paths  ["src/thrift"]  ;; paths to Thrift files
+            :java-gen-opts "bean,hashcode" ;; options for "--gen java:<options>"
+            :force-compile false}          ;; true = do not check for changes
 ...
 ```
 
 (The given values are the default ones.)
 
-### Command Line
+__Command Line__
 
+```bash
+$ lein thriftc
 ```
-lein thriftc [:verbose]
-```
-
-This runs the plugin manually based on the information given in `project.clj`. `:verbose`
-results in a few log messages.
 
 ## License
 
-Copyright &copy; 2013 Yannick Scherer
+Copyright &copy; 2013-2014 Yannick Scherer
 
 Distributed under the Eclipse Public License, the same as Clojure.
