@@ -91,7 +91,7 @@
        (merge default-settings)
        (merge
          {:target-path   (io/file target-path "thrift-java")
-          :modified-file (io/file root ".lein-thriftc-modified")})))
+          :modified-file (io/file target-path ".lein-thriftc-modified")})))
 
 ;; ## Leiningen Command
 
