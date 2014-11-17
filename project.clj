@@ -1,4 +1,4 @@
-(defproject lein-thriftc "0.2.1"
+(defproject lein-thriftc "0.2.2-SNAPSHOT"
   :min-lein-version "2.0.0"
   :description "Leiningen Plugin for Apache Thrift"
   :url "https://github.com/xsc/lein-thriftc"
