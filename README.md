@@ -46,6 +46,6 @@ $ lein thriftc
 
 ## License
 
-Copyright &copy; 2013-2014 Yannick Scherer
+Copyright &copy; 2013-2015 Yannick Scherer
 
 Distributed under the Eclipse Public License, the same as Clojure.
