@@ -49,7 +49,7 @@
         {:keys[exit out err]} (shell/sh
                                 path "-r"
                                 "--gen" "java" #_(str "java:" java-gen-opts)
-                                "-out" full-target-path
+                                "-o" full-target-path
                                 full-source-path)]
     (when-not (zero? exit)
       (main/info tag "could not compile thrift file:" full-source-path)
@@ -125,7 +125,7 @@
   (->> (fn [f project & args]
          (thriftc project)
          (let [{:keys [target-path javac-opts]} (thrift-settings project)
-               path (.getPath ^File target-path)
+               path (.getPath (io/file target-path "gen-java"))
                project' (update-in project [:java-source-paths] concat [path])]
            (apply f project' args)))
        (robert.hooke/add-hook #'j/javac :thriftc)))
