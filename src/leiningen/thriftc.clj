@@ -79,19 +79,32 @@
 
 ;; ## Settings
 
-(def ^:private default-settings
+(def ^:private default-opts
   {:path "thrift"
    :source-paths ["src/thrift"]
    :java-gen-opts "bean/hashcode"
    :force-compile false})
 
+(def ^:private allowed-opts
+  (concat
+    (keys default-opts)
+    [:target-path]))
+
+(defn- derive-opts
+  [{:keys [target-path] :as opts}]
+  (let [t (io/file target-path)]
+    (-> opts
+        (assoc :target-path t)
+        (assoc :modified-file (io/file t ".lein-thriftc-modified")))))
+
 (defn thrift-settings
   [{:keys [thriftc target-path root]}]
-  (->> (select-keys thriftc (keys default-settings))
-       (merge default-settings)
+  (->> (select-keys thriftc allowed-opts)
+       (merge default-opts)
        (merge
          {:target-path   (io/file target-path "thrift-java")
-          :modified-file (io/file target-path ".lein-thriftc-modified")})))
+          :modified-file (io/file target-path ".lein-thriftc-modified")})
+       (derive-opts)))
 
 ;; ## Leiningen Command
 
