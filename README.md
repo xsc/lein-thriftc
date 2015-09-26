@@ -29,10 +29,11 @@ You can customize lein-thrift's behaviour by adding a map of options to your `pr
 
 ```clojure
 ...
-  :thriftc {:path          "thrift"        ;; path to Thrift executable
-            :source-paths  ["src/thrift"]  ;; paths to Thrift files
-            :java-gen-opts "bean,hashcode" ;; options for "--gen java:<options>"
-            :force-compile false}          ;; true = do not check for changes
+  :thriftc {:path          "thrift"             ;; path to Thrift executable
+            :source-paths  ["src/thrift"]       ;; paths to Thrift files
+            :target-path   "target/thrift-java" ;; path for Java file generation
+            :java-gen-opts "bean,hashcode"      ;; options for "--gen java:<options>"
+            :force-compile false}               ;; true = do not check for changes
 ...
 ```
 
